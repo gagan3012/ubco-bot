@@ -14,7 +14,14 @@ The UBCO Chatbot is a complement to the UBCO project. It aims to be a user-frien
 
 # Demo
 # Overview
+
+- Frontend - ReactJS on NodeJS as the core framework.
+- Data - All data is saved in Amazon S3 and Amazon DynamoDB and is accessible via Kibana Dashboard.
+- Auth - Cognito provides unique user login and authentication.
+- Backend - In the backend we use AWS Lex, AWS Translate, AWS Comprehend and AWS Lambda Functions. 
+
 # High Level Architecture Diagram
+![architecture](https://user-images.githubusercontent.com/49101362/125141130-22711880-e0e2-11eb-9dcd-6f36e6464c03.png)
 # Deployment Guide
 # User Guide
 # Timeline
