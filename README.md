@@ -6,8 +6,8 @@ The UBCO Chatbot is a complement to the UBCO project. It aims to be a user-frien
 |:----------------|:-----------|
 | [Demo](#demo)         |    See an example of a normal conversation that a user would have with the chatbot.    | 
 | [Overview](#overview)         | See the main parts of the stack: frontend, backend and data.      | 
-| [High Level Architecture Diagram](#high-level-architecture-diagram) |yjh.     |
-| [Deployment Guide](#deployment-guide) |jhgkj. |
+| [High Level Architecture Diagram](#high-level-architecture-diagram) |Diagram.     |
+| [Deployment Guide](#deployment-guide) |A link to the deployment guide. |
 | [User Guide](#user-guide) |  A link to the user guide.   |
 | [Changelog](#changelog)      |     History of what has changed.     |
 | [License](#license)      |     License details.     |
