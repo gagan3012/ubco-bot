@@ -1,0 +1,26 @@
+{
+    "endpoint":"${ESVar.ESAddress}",
+    "method":"POST",
+    "path":"/${Var.QnaIndex}/_delete_by_query?refresh=true",
+    "body":{
+        "query":{
+            #if($input.path('$.query').length()!=0)
+            "bool":{
+                "must":{"match_all":{}},
+                "filter":{"regexp":{
+                    "qid":"$input.path('$.query')"
+                }}
+            }
+            #else
+            "terms":{
+                "qid":[
+                #foreach($qid in $input.path('$.list'))
+                    "$qid"#if($foreach.hasNext),#end
+                #end]
+            }
+            #end
+        }
+    }
+}
+
+

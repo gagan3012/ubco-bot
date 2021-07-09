@@ -1,0 +1,67 @@
+#if ( $input.params('perpage').length()==0 )
+    #set ( $perpage = 10 )
+#else
+    #set ( $perpage = $input.params('perpage') )
+#end
+
+#if ( $input.params('from').length()==0)
+    #set ( $from = 0 )
+#else
+    #set ( $from = $input.params('from') )
+#end
+
+#if ( $input.params('order').length()==0 )
+    #set ( $order = "asc" )
+#else
+    #set ( $order = $input.params('order') )
+#end
+    
+{
+    "endpoint":"${ESVar.ESAddress}",
+    "method":"POST",
+
+    
+    #if($input.params('query').length()>0)
+    "path":"/${Var.QnaIndex}/_search?search_type=dfs_query_then_fetch",
+    "question": "$util.urlDecode($input.params('query'))",
+    #else
+    "path":"/${Var.QnaIndex}/_search?search_type=dfs_query_then_fetch",
+    "question": "",
+    #end
+    
+    #if ($input.params('topic'))
+    "topic": "$util.urlDecode($input.params('topic'))",
+    #else
+    "topic": "",
+    #end
+
+    "size":"$perpage",
+    "from":"$from",
+
+
+    "body":{
+        #if($input.params('query').length()>0)
+        "comment": "ES Query for test queries are now built dynamically by ESProxy Lambda handler."
+        #else
+        "size":"$perpage",
+        "from":"$from",
+        "query": {
+            "bool":{
+                #if($input.params('filter').length()==0)
+                "must":{"match_all":{}}
+                #else
+                "filter":{"regexp":{
+                    "qid":"$util.urlDecode($input.params('filter'))"
+                }}
+                #end
+            }
+        }
+        ,"sort":{
+            "qid":{
+                "order":"$order" 
+            }
+        }
+        #end
+    }
+}
+

@@ -1,0 +1,17 @@
+{
+  "name": "testall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.913.0",
+    "bluebird": "^3.5.1",
+    "intercept-stdout": "^0.1.2",
+    "lodash": "^4.17.21"
+  }
+}

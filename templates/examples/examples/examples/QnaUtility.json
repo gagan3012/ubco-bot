@@ -1,0 +1,84 @@
+{
+	"qna": [{
+			"a": "Thank you for your positive feedback on this answer, your feedback helps us continuously improve.",
+			"qid": "Feedback.002",
+			"args": [
+				"correct"
+			],
+			"l": "QNA:ExamplePYTHONLambdaFeedback",
+			"q": [
+				"Thumbs up",
+				"Good answer"
+			],
+			"type": "qna"
+		},
+		{
+			"a": "Thank you for your feedback - we will try to improve this answer.",
+			"qid": "Feedback.001",
+			"args": [
+				"incorrect"
+			],
+			"l": "QNA:ExamplePYTHONLambdaFeedback",
+			"next": "",
+			"q": [
+				"Thumbs down",
+				"Bad answer"
+			],
+			"r": {
+				"subTitle": "",
+				"title": "",
+				"url": "",
+				"text": "",
+				"imageUrl": "",
+				"buttons": [{
+					"text": "",
+					"value": ""
+				}]
+			},
+			"t": "",
+			"alt": {
+				"ssml": "",
+				"markdown": ""
+			},
+			"type": "qna"
+		},
+		{
+			"a": "{{Settings.EMPTYMESSAGE}}",
+			"qid": "CustomNoMatches",
+			"type": "qna",
+			"q": [
+				"no_hits"
+			]
+		},
+		{
+			"a": "Sorry, your identity cannot be verified - please log in.",
+			"qid": "CustomNoVerifiedIdentity",
+			"type": "qna",
+			"q": [
+				"no_verified_identity"
+			]
+		},
+		{
+			"a": "I am the QnA bot, ask me a question and I will try my best to answer it.",
+			"qid": "Help",
+			"type": "qna",
+			"q": [
+				"help",
+				"help me",
+				"need help"
+			]
+		},
+	    {
+	      "qid": "Repeat",
+	      "a": "{{!-- The 'repeat' magic is in the Document Chaining Rule in the Advanced section --}}",
+	      "conditionalChaining": "(PreviousQuestion) ? PreviousQuestion : 'help'",
+	      "type": "qna",
+	      "q": [
+	        "Repeat",
+	        "Can you repeat that",
+	        "Can you please say that again",
+	        "Please repeat that"
+	      ]
+	    }
+	]
+}

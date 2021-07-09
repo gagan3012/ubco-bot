@@ -1,0 +1,58 @@
+#set($inputRoot = $input.path('$'))
+#set($utterances = $inputRoot.utterances)
+
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "q and a",
+      "types": [
+        {
+          "name": "EXAMPLE_QUESTIONS",
+          "values": [
+            #foreach( $utterance in $utterances)
+                {"name":{
+                    "value":"$utterance" 
+                }}#if( $foreach.hasNext ),#end
+            #end
+          ]
+        }
+        ## {
+        ##     "name": "EXAMPLE_QUESTIONS",
+        ##     "values": [
+        ##         {
+        ##             "name": {
+        ##                 "value": "this is required"
+        ##             }
+        ##         }
+        ##     ]
+        ##   }
+      ],
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "QnA_slot",
+              "type": "EXAMPLE_QUESTIONS"
+            }
+          ],
+          "name": "Qna_intent",
+          "samples": [
+            "{QnA_slot}"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent"
+        },
+        {
+          "name": "AMAZON.RepeatIntent"
+        },
+        {
+          "name": "AMAZON.FallbackIntent"
+        },
+        {
+          "name": "AMAZON.CancelIntent"
+        }
+      ]
+    }
+  }
+}

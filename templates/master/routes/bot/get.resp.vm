@@ -1,0 +1,26 @@
+#set ( $root="https://${!context.apiId}.execute-api.${!stageVariables.Region}.amazonaws.com/${!context.stage}")
+#set($inputRoot = $input.path('$'))
+
+{
+    "lambdaArn": "$inputRoot.lambdaArn",
+    "lambdaRole":"$inputRoot.lambdaRole",
+    "botversion":"$inputRoot.botversion",
+    "botname":"$inputRoot.botname",
+    "intent":"$inputRoot.intent",
+    "intentFallback":"$inputRoot.intentFallback",
+    "lexV2botname":"$inputRoot.lexV2botname",
+    "lexV2botid":"$inputRoot.lexV2botid",
+    "lexV2botalias":"$inputRoot.lexV2botalias",
+    "lexV2botaliasid":"$inputRoot.lexV2botaliasid",
+    "lexV2intent":"$inputRoot.lexV2intent",
+    "lexV2intentFallback":"$inputRoot.lexV2intentFallback",
+    "lexV2localeids":"$inputRoot.lexV2localeids",
+    "status":"$inputRoot.status",
+    "build":$input.json('$.build'),
+    "_links":{
+        "alexa":{
+            "href":"$root/bot/alexa"
+        }
+    }
+}
+

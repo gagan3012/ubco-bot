@@ -1,0 +1,100 @@
+{
+"LexAccessPolicy":{
+  "Type": "AWS::IAM::ManagedPolicy",
+  "Properties": {
+    "PolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [{
+          "Effect": "Allow",
+          "Action": [
+            "lex:PostContent",
+            "lex:PostText",
+            "lex:RecognizeText",
+            "lex:RecognizeUtterance"
+          ],
+          "Resource": [
+            "*"
+          ]
+        },{
+          "Effect": "Allow",
+          "Action": [
+            "polly:SynthesizeSpeech"
+          ],
+          "Resource": [
+            "*"
+          ]
+        }]
+    },
+    "Roles":{"Fn::If":[
+        "Public",
+        [{"Ref":"AdminRole"},{"Ref":"UnauthenticatedRole"},{"Ref":"UserRole"}],
+        [{"Ref":"AdminRole"},{"Ref":"UserRole"}]
+    ]}
+  }
+},
+"ApiGatewayCloudWatchLogsRole": {
+  "Type": "AWS::IAM::Role",
+  "Properties": {
+    "AssumeRolePolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": [
+              "apigateway.amazonaws.com"
+            ]
+          },
+          "Action": [
+            "sts:AssumeRole"
+          ]
+        }
+      ]
+    },
+    "Policies": [
+      {
+        "PolicyName": "ApiGatewayLogsPolicy",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents"
+             ],
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    ]
+  }
+},
+"ApiGatewayRole": {
+  "Type": "AWS::IAM::Role",
+  "Properties": {
+    "AssumeRolePolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": [
+              "apigateway.amazonaws.com"
+            ]
+          },
+          "Action": [
+            "sts:AssumeRole"
+          ]
+        }
+      ]
+    }
+  }
+}
+}

@@ -1,0 +1,15 @@
+{
+    "endpoint":"${ESVar.ESAddress}",
+    "method":"POST",
+    "path":"/${Var.QnaIndex}/_delete_by_query?refresh=true",
+    "body":{
+        "query":{
+            "match":{
+                "qid":"$util.urlDecode($input.params('ID'))"
+            }
+        }
+    }
+
+}
+
+

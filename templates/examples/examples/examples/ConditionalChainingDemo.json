@@ -1,0 +1,142 @@
+﻿{
+  "qna": [
+    {
+      "args": [
+        ""
+      ],
+      "next": "",
+      "a": "Hello and Welcome to the demo for QNA Bot ElicitResponse and Conditional Chaining features. In this demo we will be recommending a space movie based on your age.\nLet's start by getting your name. Just give me your First Name and Last Name please.",
+      "r": {
+        "buttons": [
+          {
+            "text": "",
+            "value": ""
+          }
+        ],
+        "subTitle": "",
+        "imageUrl": "",
+        "title": ""
+      },
+      "t": "",
+      "elicitResponse": {
+        "response_sessionattr_namespace": "demo.name",
+        "responsebot_hook": "QNAName"
+      },
+      "alt": {
+        "markdown": "Hello and Welcome to the demo for QnABot ElicitResponse and Conditional Chaining features. In this demo we will be recommending a space movie based on your age.\n  \nLet's start by getting your name. Just give me your **First Name** and **Last Name** please.",
+        "ssml": ""
+      },
+      "rp": "Please say your First Name and Last Name.",
+      "conditionalChaining": "'Elicit Age'",
+      "l": "",
+      "qid": "10.chaining.demo.Name",
+      "type": "qna",
+      "selected": false,
+      "q": [
+        "Start Chaining Demo",
+        "Get Started", 
+        "Begin"
+      ]
+    },
+    {
+      "qid": "50.chaining.demo.finish",
+      "a": "*The sentiment detected from your feedback is: {{SessionAttributes.demo.comment.Sentiment}}.*  \n\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'POSITIVE'}}\nGlad you enjoyed the demo!\n{{/ifCond}}\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'NEGATIVE'}}\nThanks for your comments; they will help us to improve.\n{{/ifCond}}\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'NEUTRAL'}}\nThanks for trying the demo. Come back soon.\n{{/ifCond}}",
+      "alt": {
+        "markdown": "*The sentiment detected from your feedback is: {{SessionAttributes.demo.comment.Sentiment}}.*  \n\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'POSITIVE'}}\nGlad you enjoyed the demo!\n{{/ifCond}}\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'NEGATIVE'}}\nThanks for your comments; they will help us to improve.\n{{/ifCond}}\n{{#ifCond SessionAttributes.demo.comment.Sentiment '==' 'NEUTRAL'}}\nThanks for trying the demo. Come back soon.\n{{/ifCond}}"
+      },
+      "type": "qna",
+      "q": [
+        "finish chaining demo"
+      ]
+    },
+    {
+      "qid": "31.chaining.demo.Under12",
+      "a": "{{SessionAttributes.demo.name.FirstName}}, since you are under 12, I recommend watching Disney's WALL-E. It's a wonderful cartoon about a robot looking for a friend.",
+      "alt": {
+        "markdown": "{{SessionAttributes.demo.name.FirstName}}, since you are under 12, I recommend watching Disney's **WALL-E**. It's a wonderful cartoon about a robot looking for a friend."
+      },
+      "conditionalChaining": "'Leave Us Some Feedback'",
+      "type": "qna",
+      "q": [
+        "Under 12"
+      ]
+    },
+    {
+      "qid": "40.chaining.demo.feedback",
+      "a": "Please give us some feedback about this selection.",
+      "alt": {
+        "markdown": "<br>\n***Please give us some feedback about this selection?***"
+      },
+      "rp": "Have you any feedback?",
+      "elicitResponse": {
+        "responsebot_hook": "QNAFreeText",
+        "response_sessionattr_namespace": "demo.comment"
+      },
+      "conditionalChaining": "'finish chaining demo'",
+      "type": "qna",
+      "q": [
+        "Leave Us Some Feedback"
+      ]
+    },
+    {
+      "qid": "30.chaining.demo.Between12and60",
+      "a": "{{SessionAttributes.demo.name.FirstName}}, since you are between 12 and 60, let me recommend the movie 2001: A Space Odyssey. It is a 1968 epic science fiction film that takes place in outer space.",
+      "alt": {
+        "markdown": "{{SessionAttributes.demo.name.FirstName}}, since you are between 12 and 60, let me recommend the movie **2001: A Space Odyssey**. It is a 1968 epic science fiction film that takes place in outer space."
+      },
+      "conditionalChaining": "'Leave Us Some Feedback'",
+      "type": "qna",
+      "q": [
+        "Between 12 and 60"
+      ]
+    },
+    {
+      "args": [
+        ""
+      ],
+      "next": "",
+      "a": "Hi {{SessionAttributes.demo.name.FirstName}}.  Now tell me your age (in years) please?",
+      "r": {
+        "buttons": [
+          {
+            "text": "",
+            "value": ""
+          }
+        ],
+        "subTitle": "",
+        "imageUrl": "",
+        "title": ""
+      },
+      "t": "",
+      "elicitResponse": {
+        "response_sessionattr_namespace": "demo.age",
+        "responsebot_hook": "QNAAge"
+      },
+      "alt": {
+        "markdown": "Hi {{SessionAttributes.demo.name.FirstName}}.  \nNow tell me your age (in years) please?",
+        "ssml": ""
+      },
+      "rp": "How old are you?",
+      "conditionalChaining": "(SessionAttributes.demo.age.Age>= 60) ? \"Over 60\" : (SessionAttributes.demo.age.Age< 12) ? \"Under 12\" : \"Between 12 and 60\"",
+      "l": "",
+      "qid": "20.chaining.demo.Age",
+      "type": "qna",
+      "selected": false,
+      "q": [
+        "Elicit age"
+      ]
+    },
+    {
+      "qid": "32.chaining.demo.Over60",
+      "a": "{{SessionAttributes.demo.name.FirstName}}, since you are over 60 let me recommend the movie First Man. It takes a look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon.",
+      "alt": {
+        "markdown": "{{SessionAttributes.demo.name.FirstName}}, since you are over 60 let me recommend the movie **First Man**. It takes a look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon."
+      },
+      "conditionalChaining": "'Leave Us Some Feedback'",
+      "type": "qna",
+      "q": [
+        "Over 60"
+      ]
+    }
+  ]
+}
