@@ -23,6 +23,9 @@ The UBCO Chatbot is a complement to the UBCO project. It aims to be a user-frien
 # High Level Architecture Diagram
 ![architecture](https://user-images.githubusercontent.com/49101362/125141130-22711880-e0e2-11eb-9dcd-6f36e6464c03.png)
 # Deployment Guide
+
+To deploy this solution into your AWS Account please follow our [Deployment Guide](https://github.com/gagan3012/ubco-bot/blob/master/docs/DEPLOYMENT_GUIDE.md)
+
 # User Guide
 # Timeline
 # Changelog
