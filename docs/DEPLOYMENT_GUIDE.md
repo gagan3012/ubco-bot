@@ -18,6 +18,10 @@ Two approaches can be used to get started. Deploy from pre-created repositories 
 
 Click a button to launch QnABot CloudFormation stack in the desired region
 
+| Region   |  Launch |
+|----------|:-------------:|
+| Northern Virginia (us-east-1) | <a target="_blank" href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=QnABot&templateURL="><span><img height="24px" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"/></span></a>     |
+
 ### CLI Deployment
 
 First, install all prerequisites:
