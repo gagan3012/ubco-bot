@@ -29,4 +29,6 @@ To deploy this solution into your AWS Account please follow our [Deployment Guid
 # User Guide
 # Timeline
 # Changelog
+* July 9, 2021: Initial release.
 # License
+This project is distributed under  [Apache-2.0](https://github.com/gagan3012/ubco-bot/blob/main/LICENSE) 
