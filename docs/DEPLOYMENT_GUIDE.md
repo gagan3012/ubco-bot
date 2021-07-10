@@ -14,5 +14,47 @@ Before you deploy, you must have the following in place:
 
 Two approaches can be used to get started. Deploy from pre-created repositories or use the CLI to deploy it.
 
+### Pre-created deployment
 
+Click a button to launch QnABot CloudFormation stack in the desired region
+
+### CLI Deployment
+
+First, install all prerequisites:
+
+```shell
+npm install 
+```
+
+Next, set up your configuration file:
+
+```shell
+npm run config
+```
+now edit config.json with you information.
+
+| param | description |
+|-------|-------------|
+|region | the AWS region to launch stacks in |
+|profile| the AWS credential profile to use |
+|namespace| a logical name space to run your templates |
+|devEmail | the email to use when creating admin users in automated stack launches |
+
+Next, use the following command to launch a CloudFormation template to create the S3 bucket to be used for lambda code and CloudFormation templates.
+
+```shell
+npm run bootstrap
+```
+
+Finally, use the following command to launch template to deploy the QnA bot in your AWS account.
+
+```shell
+npm run up
+```
+
+If you have an existing stack you can run the following to update your stack:
+
+```shell
+npm run update
+```
 
