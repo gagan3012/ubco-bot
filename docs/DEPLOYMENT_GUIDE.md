@@ -16,7 +16,7 @@ Two approaches can be used to get started. Deploy from pre-created repositories 
 
 ### Pre-created deployment
 
-Click a button to launch QnABot CloudFormation stack in the desired region
+Click a button to launch UBCO Bot CloudFormation stack in the desired region
 
 | Region   |  Launch |
 |----------|:-------------:|
