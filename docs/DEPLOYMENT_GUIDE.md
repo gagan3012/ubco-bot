@@ -50,7 +50,7 @@ Next, use the following command to launch a CloudFormation template to create th
 npm run bootstrap
 ```
 
-Finally, use the following command to launch template to deploy the QnA bot in your AWS account.
+Finally, use the following command to launch template to deploy the UBCO bot in your AWS account.
 
 ```shell
 npm run up
