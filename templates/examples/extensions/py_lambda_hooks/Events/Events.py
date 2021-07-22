@@ -30,7 +30,7 @@ def events_db():
     return {'events': events}
 
 
-def lambda_handler(event, context):
+def handler(event, context):
     data = events_db()
     r1 = random.randint(0, 9)
     #event['res']['type'] = "ImageResponseCard"
