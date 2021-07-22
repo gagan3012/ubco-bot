@@ -28,6 +28,9 @@ The first interaction that the user has with the chatbot is through the UI, whic
 From there, the AWS Lex receives the query and through custom Lambda functions and predefined Lex bots, generates answers and stores them in a Dynamodb Table. The backend of the bot is supported by Elastisearch which is the server of the bot. 
 
 The Elasticsearch logs all the bot responses and queries to the Kibana dashboard which can be used for later analysis. 
+
+Finally all the assets are stored in S3 bucket created by the cloud formation template. 
+
 # Deployment Guide
 
 To deploy this solution into your AWS Account please follow our [Deployment Guide](https://github.com/gagan3012/ubco-bot/blob/master/docs/DEPLOYMENT_GUIDE.md)
