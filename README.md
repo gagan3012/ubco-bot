@@ -26,6 +26,8 @@ The UBCO Chatbot is a complement to the UBCO project. It aims to be a user-frien
 The first interaction that the user has with the chatbot is through the UI, which was built using AWS Lex Web UI (https://github.com/aws-samples/aws-lex-web-ui). The UI is then connected to the backend via API gateway. 
 
 From there, the AWS Lex receives the query and through custom Lambda functions and predefined Lex bots, generates answers and stores them in a Dynamodb Table. The backend of the bot is supported by Elastisearch which is the server of the bot. 
+
+The Elasticsearch logs all the bot responses and queries to the Kibana dashboard which can be used for later analysis. 
 # Deployment Guide
 
 To deploy this solution into your AWS Account please follow our [Deployment Guide](https://github.com/gagan3012/ubco-bot/blob/master/docs/DEPLOYMENT_GUIDE.md)
